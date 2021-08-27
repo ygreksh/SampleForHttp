@@ -4,12 +4,12 @@ namespace SampleForHttp.Model
 {
     public class Team
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public int foundationYear { get; set; } 
-        public string division { get; set; }
-        public string conference { get; set; }
-        public string imageUrl { get; set; }
+        public int FoundationYear { get; set; } 
+        public string Division { get; set; }
+        public string Conference { get; set; }
+        public string ImageUrl { get; set; }
         
     }
 }

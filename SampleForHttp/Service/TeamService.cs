@@ -14,18 +14,18 @@ namespace SampleForHttp.Service
 
         public TeamService(string token)
         {
-            this._token = token ?? throw new ArgumentNullException(token);
+            this._token = token ?? throw new ArgumentNullException(nameof(token));
         }
 
         public async Task Add(Team team)
         {
             string serializedTeam = JsonConvert.SerializeObject(team);
-            var content = new StringContent(serializedTeam, Encoding.Default,"application/json");
+            var content = new StringContent(serializedTeam, Encoding.UTF8,"application/json");
             using (HttpClient client = new  HttpClient())
             {
                 client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse(_token);
 
-                await client.PostAsync("http://dev.trainee.dex-it.ru/api/Team/Add", content);
+                var response = await client.PostAsync("http://dev.trainee.dex-it.ru/api/Team/Add", content);
             }
         }
 
