@@ -24,8 +24,9 @@ namespace SampleForHttp.Service
             using (HttpClient client = new  HttpClient())
             {
                 client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse(_token);
-
+               
                 var response = await client.PostAsync("http://dev.trainee.dex-it.ru/api/Player/Add", content);
+                response.EnsureSuccessStatusCode();
             }
         }
 

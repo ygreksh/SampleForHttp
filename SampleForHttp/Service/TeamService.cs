@@ -26,6 +26,7 @@ namespace SampleForHttp.Service
                 client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse(_token);
 
                 var response = await client.PostAsync("http://dev.trainee.dex-it.ru/api/Team/Add", content);
+                response.EnsureSuccessStatusCode();
             }
         }
 
